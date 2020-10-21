@@ -71,9 +71,13 @@ configure(subprojects.findAll(IS_PLUGIN)) {
 			srcDir 'test'
 		} }
 	}
-	sourceCompatibility = VER_JAVA
-	targetCompatibility = VER_JAVA
 
+	java {
+		sourceCompatibility = JavaVersion.VERSION_11
+		targetCompatibility = JavaVersion.VERSION_11
+		toolchain { languageVersion = JavaLanguageVersion.of(11) } 
+	}
+	
 	// add SWT and the appropriate platform-native SWT for building and testing
 	dependencies {
 		implementation "eclipse-deps:org.eclipse.swt:+"
@@ -94,8 +98,8 @@ configure(subprojects.findAll(IS_PLUGIN)) {
 		'-removeheaders': 'Bnd-LastModified,Bundle-Name,Created-By,Tool,Private-Package,Require-Capability',
 		'Import-Package': '!javax.annotation.*,*',
 		'Bundle-SymbolicName': project.name,
-		'Bundle-RequiredExecutionEnvironment': 'JavaSE-1.8',
-		'Require-Capability': 'osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"',
+		'Bundle-RequiredExecutionEnvironment': 'JavaSE-11',
+		'Require-Capability': 'osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=11))"',
 		'Bundle-Vendor': 'DiffPlug',
 		'Bundle-License': "http://www.apache.org/licenses/LICENSE-2.0"
 	)
@@ -125,8 +129,8 @@ configure(subprojects.findAll(IS_PLUGIN)) {
 			downloadJavadoc true
 		}
 		jdt {
-			sourceCompatibility VER_JAVA
-			targetCompatibility VER_JAVA
+			sourceCompatibility "11"
+			targetCompatibility "11"
 		}
 	}
 	// always create "fresh" projects

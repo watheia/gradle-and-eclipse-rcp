@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-License: http://www.apache.org/licenses/LICENSE-2.0
 Bundle-ManifestVersion: 2
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-11
 Bundle-SymbolicName: com.diffplug.rcpdemo;singleton:=true
 Bundle-Vendor: DiffPlug
 Bundle-Version: 1.0.0
